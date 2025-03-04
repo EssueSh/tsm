@@ -10,9 +10,9 @@ nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Load pretrained model, vectorizer, and label encoder
-model = joblib.load("sentiment_model(1).pkl")
-CV = joblib.load("vectorizer(1).pkl")
-le = joblib.load("label_encoder(1).pkl")
+model = joblib.load("sentiment_model (1).pkl")
+CV = joblib.load("vectorizer (1).pkl")
+le = joblib.load("label_encoder (1).pkl")
 
 # Function to preprocess text
 def preprocess_text(text):
