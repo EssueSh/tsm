@@ -42,7 +42,7 @@ if st.button("Analyze Sentiment"):
         st.warning("Please enter a comment.")
 
 # Upload Excel file for batch sentiment analysis
-uploaded_file = st.file_uploader("Upload an Excel file with a 'text' column", type=["xls", "xlsx"])
+uploaded_file = st.file_uploader("Upload an Excel file with a 'text' column", type=["xls", "xlsx","csv"])
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
     if 'text' in df.columns:
