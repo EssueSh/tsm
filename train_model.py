@@ -16,11 +16,14 @@ nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Load dataset (Make sure to have a CSV file with 'text' and 'airline_sentiment' columns)
-df = pd.read_csv("/content/twitter_x_y_train.csv")  # Change to your dataset path
+df = pd.read_csv("/content/twitter_training.csv")  # Change to your dataset path
 
 # Preprocessing function
 def preprocess_text(text):
-    text = text.lower()
+    # Check if the input is a string, if not, convert it to string
+    if not isinstance(text, str):
+        text = str(text)  
+    #text = text.lower()
     text = "".join([char for char in text if char not in string.punctuation])  # Remove punctuation
     text = " ".join([word for word in text.split() if word not in stop_words])  # Remove stopwords
     return text
@@ -49,7 +52,7 @@ y_pred = model.predict(x_test_vec)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy:.2f}")
 
-# Save model, vectorizer, and label encoder
+# Save model, vectorizer, and label encoder541
 joblib.dump(model, "sentiment_model.pkl")
 joblib.dump(CV, "vectorizer.pkl")
 joblib.dump(le, "label_encoder.pkl")
