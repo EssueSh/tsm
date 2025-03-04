@@ -44,7 +44,7 @@ if st.button("Analyze Sentiment"):
 # Upload Excel file for batch sentiment analysis
 uploaded_file = st.file_uploader("Upload an Excel file with a 'text' column", type=["xls", "xlsx"])
 if uploaded_file:
-    df = pd.read_excel(uploaded_file)
+    df = pd.read_csv(uploaded_file)
     if 'text' in df.columns:
         df['text_clean'] = df['text'].apply(preprocess_text)
         df_vec = CV.transform(df['text_clean'])
