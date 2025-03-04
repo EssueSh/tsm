@@ -79,7 +79,7 @@ if uploaded_file:
             sentiment_counts, 
             labels=sentiment_counts.index, 
             autopct='%1.1f%%', 
-            colors=['red', 'yellow', 'green'],  # Customize colors for negative, neutral, positive
+            colors=['red', 'yellow', 'green','blue'],  # Customize colors for negative, neutral, positive
             startangle=90
         )
         ax.set_title("Sentiment Distribution")
